@@ -1,0 +1,32 @@
+import createAxiosByInterceptors from "@/service";
+import type { IResponseLogin, IResUserInfo, IResLogout, IResponseCaptcha } from "./type";
+import { AxiosRequestConfig } from "axios";
+
+
+export const request = createAxiosByInterceptors({
+  baseURL: "/dev-api",
+});
+export const reqCaptcha = (): IResponseCaptcha => {
+  return request.get("/api/v1/base/captcha");
+};
+export const reqLogin = (params: { username: string, password: string, captchaId: string, code: string }): IResponseLogin => {
+  return request.post("/api/v1/base/login", { ...params });
+};
+export const reqUserInfo = (token: string): Promise<IResUserInfo> => {
+  const config: AxiosRequestConfig = {
+    headers: {
+      'auth-token': token,
+    },
+  };
+  return request.get("/api/v1/user/info", config);
+}
+
+export const reqLogout = (token: string): IResLogout => {
+  const config: AxiosRequestConfig = {
+    headers: {
+      'auth-token': token,
+    },
+  };
+  return request.post("/api/v1/user/logout", config);
+
+} 
