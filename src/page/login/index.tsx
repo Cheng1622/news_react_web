@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Warp } from "./style";
 import { useDispatch } from "react-redux";
 import { getUserInfo, login } from "@/store/global/actions";

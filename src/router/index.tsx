@@ -13,6 +13,10 @@ export const routeConfig: RouteObj[] = [
     path: "/login",
     element: lazyLoad(lazy(() => import("@/page/login")))
   },
+  {
+    path: "*",
+    element: lazyLoad(lazy(() => import("@/page/error")))
+  }
 
 ];
 
