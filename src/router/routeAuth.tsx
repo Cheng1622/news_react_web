@@ -19,9 +19,9 @@ const RequireAuth: React.FC<{ children: ReactElement }> = (props) => {
     } else if (pathname === "/login") {
       return redirectToDashboard();
     } else if (
-      userInfo?.role !== "admin" &&
+      userInfo?.roles?.[0]?.ID !== 0 &&
       curRoute?.meta?.auth?.roles?.length &&
-      !curRoute?.meta?.auth?.roles?.includes(userInfo.role)
+      !curRoute?.meta?.auth?.roles?.includes(userInfo?.roles?.[0]?.ID)
     ) {
       return redirectToErrorPage();
     }

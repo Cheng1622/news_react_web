@@ -20,7 +20,7 @@ export interface IUserInfo {
   introduction: string;
   mobile: string;
   nickname: string;
-  roles: string;
+  roles: any[];
   userid: string;
   username: string;
 }

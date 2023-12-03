@@ -25,7 +25,7 @@ export type IResponseLogin = PromiseDta<{
 
 
 export type IResUserInfo = PromiseDta<{
-  data?: {
+  data: {
     userInfo: UserInfo
   }
   msg: string
@@ -38,7 +38,7 @@ export interface UserInfo {
   introduction: string;
   mobile: string;
   nickname: string;
-  roles: string;
+  roles: any[];
   userid: string;
   username: string;
 }

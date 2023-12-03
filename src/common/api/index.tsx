@@ -12,7 +12,7 @@ export const reqCaptcha = (): IResponseCaptcha => {
 export const reqLogin = (params: { username: string, password: string, captchaId: string, code: string }): IResponseLogin => {
   return request.post("/api/v1/base/login", { ...params });
 };
-export const reqUserInfo = (token: string): Promise<IResUserInfo> => {
+export const reqUserInfo = (token: string): IResUserInfo => {
   const config: AxiosRequestConfig = {
     headers: {
       'auth-token': token,

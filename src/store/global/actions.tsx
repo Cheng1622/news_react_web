@@ -25,7 +25,7 @@ export const getUserInfo = (token: string): AppThunk<ReturnType<typeof reqUserIn
   return dispatch => {
     return new Promise((resolve, reject) => {
       reqUserInfo(token).then(res => {
-        const { data:{userInfo} } = res;
+        const { userInfo } = res.data;
         dispatch(setUserInfo(userInfo));
         setInfo(userInfo);
         console.log(userInfo)
