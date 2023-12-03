@@ -19,7 +19,7 @@ const RequireAuth: React.FC<{ children: ReactElement }> = (props) => {
     } else if (pathname === "/login") {
       return redirectToDashboard();
     } else if (
-      userInfo?.roles?.[0]?.ID !== 0 &&
+      userInfo?.roles?.[0]?.ID <= 3 &&
       curRoute?.meta?.auth?.roles?.length &&
       !curRoute?.meta?.auth?.roles?.includes(userInfo?.roles?.[0]?.ID)
     ) {

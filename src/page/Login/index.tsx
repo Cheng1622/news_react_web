@@ -100,7 +100,10 @@ const Login = () => {
               ]}
               width="sm"
             />
-            <img style={{ height: '32px' }} src={picPath} alt="Captcha" onClick={fetchCaptchaImage} />
+            <img className='ant-form-large ant-form-item ant-form-item-control-input ant-input-affix-wrapper css-dev-only-do-not-override-bvtb8s ' src={picPath} alt="Captcha" onClick={fetchCaptchaImage}
+              style={{
+                maxWidth: "125px",
+              }} />
           </div>
           <div
             style={{

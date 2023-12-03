@@ -79,5 +79,5 @@ export const Warp = styled.div`
     height: auto;
     border-radius: 8px;
   }
-
+  
 `;

@@ -5,6 +5,7 @@ import { resetTopHeaderState } from "@/store/topHeader/actions";
 import type { ResetUserInfoAction, SetUserInfoAction, SetUserTokenAction } from "./actionTypes";
 import type { UserInfo } from "@/common/api/type";
 import type { AppThunk } from "@/store";
+import { message } from "antd";
 
 export const login = ({ username, password, captchaId, code }: { username: string, password: string, captchaId: string, code: string }): AppThunk<ReturnType<typeof reqLogin>> => {
   return (dispatch) => {
@@ -17,6 +18,7 @@ export const login = ({ username, password, captchaId, code }: { username: strin
         resolve(res);
       }).catch(error => {
         reject(error);
+        message.error(error.data)
       });
     });
   };
@@ -39,14 +41,12 @@ export const getUserInfo = (token: string): AppThunk<ReturnType<typeof reqUserIn
 export const logout = (token: string): AppThunk => {
   return (dispatch) => new Promise((resolve, reject) => {
     reqLogout(token).then(res => {
-      if (res?.data.status === 0) {
         localStorage.removeItem("token");
         dispatch(resetUserInfo());
         dispatch(setUserToken(""));
         dispatch(resetTopHeaderState());
         // dispatch(resetThemeState());
         resolve(true);
-      }
     }).catch(error => {
       reject(false);
     });
