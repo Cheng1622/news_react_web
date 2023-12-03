@@ -29,14 +29,14 @@ const Warp = styled.div`
   }
 `;
 const Loading = () => {
-  const {token: {colorprimary}} = useSelector(selectTheme);
+  const {token: {colorPrimary}} = useSelector(selectTheme);
   useEffect(() => {
     NProgress?.start();
     if (NProgress?.isRendered()) {
       const barTag: HTMLElement = document.querySelector("[role=\"bar\"]")!;
-      barTag.style.background = colorprimary;
+      barTag.style.background = colorPrimary;
       const pegTag: HTMLElement = document.querySelector(".peg")!;
-      pegTag.style.boxShadow = `0 0 10px ${colorprimary}, 0 0 5px ${colorprimary}`;
+      pegTag.style.boxShadow = `0 0 10px ${colorPrimary}, 0 0 5px ${colorPrimary}`;
     }
     return () => {
       NProgress?.done();

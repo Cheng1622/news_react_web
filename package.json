@@ -12,6 +12,7 @@
   "dependencies": {
     "@ant-design/pro-components": "^2.6.43",
     "@types/nprogress": "^0.2.3",
+    "@types/react-color": "^3.0.10",
     "antd": "^5.11.5",
     "axios": "^1.6.2",
     "echarts": "^5.4.3",

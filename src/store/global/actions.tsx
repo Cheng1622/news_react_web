@@ -12,7 +12,6 @@ export const login = ({ username, password, captchaId, code }: { username: strin
     return new Promise((resolve, reject) => {
       reqLogin({ username, password, captchaId, code }).then(res => {
         const { token } = res.data;
-      console.log(res);
         dispatch(setUserToken(token));
         setToken(token);
         resolve(res);
@@ -30,7 +29,6 @@ export const getUserInfo = (token: string): AppThunk<ReturnType<typeof reqUserIn
         const { userInfo } = res.data;
         dispatch(setUserInfo(userInfo));
         setInfo(userInfo);
-        console.log(userInfo)
         resolve(res);
       }).catch(error => {
         reject(error);
