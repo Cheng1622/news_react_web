@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Warp = styled.div`
   height: 100%;
 
+
   .scrollbar {
     height: calc(100vh - 48px);
     overflow-y: scroll;
@@ -29,7 +30,7 @@ export const Warp = styled.div`
     //border-Radius: 4px;
     //box-Shadow: 0 2px 6px;
     //background: rgb(255, 255, 255);
-
+    
   }
 
   .layout-content::-webkit-scrollbar {
