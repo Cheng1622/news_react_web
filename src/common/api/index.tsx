@@ -27,6 +27,6 @@ export const reqLogout = (token: string): IResLogout => {
       'auth-token': token,
     },
   };
-  return request.post("/api/v1/user/logout", config);
+  return request.get("/api/v1/user/logout", config);
 
 } 
