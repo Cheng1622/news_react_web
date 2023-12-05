@@ -43,11 +43,8 @@ export interface UserInfo {
   username: string;
 }
 
-
-export type IResLogout = PromiseDta<{
-  data: {
-    status: number
-  }
-  msg: string
+export type IResponseApi = PromiseDta<{
   code: number
+  data: any
+  msg: string
 }>

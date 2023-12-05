@@ -17,7 +17,6 @@ export const login = ({ username, password, captchaId, code }: { username: strin
         resolve(res);
       }).catch(error => {
         reject(error);
-        message.error(error.data)
       });
     });
   };

@@ -19,12 +19,12 @@ const UserAvatar = () => {
     {
       label: (<Space
         onClick={(e) => {
-          navigator("/user/info");
+          navigator("/user");
         }}>
         <UserOutlined />
         个人中心
       </Space>),
-      key: "/user/info",
+      key: "/user",
     },
     {
       type: "divider",

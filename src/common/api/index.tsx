@@ -1,5 +1,5 @@
 import createAxiosByInterceptors from "@/service";
-import type { IResponseLogin, IResUserInfo, IResLogout, IResponseCaptcha } from "./type";
+import type { IResponseLogin, IResUserInfo, IResponseCaptcha, Data, IResponseApi } from "./type";
 import { AxiosRequestConfig } from "axios";
 
 
@@ -21,7 +21,7 @@ export const reqUserInfo = (token: string): IResUserInfo => {
   return request.get("/api/v1/user/info", config);
 }
 
-export const reqLogout = (token: string): IResLogout => {
+export const reqLogout = (token: string): IResponseApi => {
   const config: AxiosRequestConfig = {
     headers: {
       'auth-token': token,
@@ -29,4 +29,14 @@ export const reqLogout = (token: string): IResLogout => {
   };
   return request.get("/api/v1/user/logout", config);
 
-} 
+}
+
+
+export const reqChangePwd = (token: string,params: { oldPassword: string, newPassword: string}):IResponseApi => {
+  const config: AxiosRequestConfig = {
+    headers: {
+      'auth-token': token,
+    },
+  };
+  return request.put("/api/v1/user/changePwd", { ...params },config);
+}

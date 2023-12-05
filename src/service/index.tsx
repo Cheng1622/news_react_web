@@ -1,4 +1,5 @@
-import type {AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse} from "axios";
+import { message } from "antd";
+import type { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import axios from "axios";
 
 const defaultConfig = {
@@ -24,12 +25,13 @@ const createAxiosByInterceptors = (config: AxiosRequestConfig = defaultConfig) =
   );
   instance.interceptors.response.use(
     function (response: AxiosResponse) {
-      const {data} = response;
-      const {code, msg} = data;
+      const { data } = response;
+      const { code, msg } = data;
       if (data instanceof ArrayBuffer) return data;
       const codeMap: { [key: number | string]: any } = {
         1000: () => data,
         "default": () => {
+          message.error(msg)
           return Promise.reject(response.data);
         },
       };
